@@ -2,10 +2,13 @@
 
 class RaidInputs:
     def __init__(self, input_dict):
-        self.raid_level = input_dict.get("raid_level")
-        self.team_size = input_dict.get("team_size")
-        self.personal_points = input_dict.get("personal_points")
-        self.party_points = input_dict.get("party_points")
+        self.raid_level = int(input_dict.get("raid_level"))
+        self.team_size = int(input_dict.get("team_size"))
+        self.personal_points = int(input_dict.get("personal_points"))
+        if input_dict.get("party_points"):
+            self.party_points = int(input_dict.get("party_points"))
+        else:
+            self.party_points = self.personal_points * self.team_size
 
 class UniqueCalculations:
     @staticmethod
@@ -113,5 +116,3 @@ class UniqueCalculations:
             "unique_table_personal": unique_table_personal,
             "unique_table_party": unique_table_party
         }
-
-
