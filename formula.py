@@ -101,6 +101,7 @@ class UniqueCalculations:
         p_share = inp.personal_points / party_pts
         personal_prob = party_prob * p_share
         unique_table_personal = self.calculate_unique_table(inp.raid_level, personal_prob)
+        unique_table_party = self.calculate_unique_table(inp.raid_level, party_prob)
         return {
             "party_prob": party_prob,
             "personal_prob": personal_prob,
@@ -109,7 +110,8 @@ class UniqueCalculations:
             "party_points_estimation": estimation,
             "personal_points": inp.personal_points,
             "team_size": inp.team_size,
-            "unique_table": unique_table_personal
+            "unique_table_personal": unique_table_personal,
+            "unique_table_party": unique_table_party
         }
 
 
